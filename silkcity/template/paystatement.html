@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/paystatement.css' %}">
+</head>
+<body>
+  
+<div class="main" id="printableArea">
+    
+  <header>
+    <div class="header-top">
+      <div class="header-top-content">
+        <h1>Customer Service:01311 00 48 48</h1>
+        <h1>Silk City Diagnostic Complex</h1>
+      </div>
+      <img src="{%static 'img/ONVIQD0.png'%}" alt="">
+    </div>
+    
+    <div class="header-table">
+      <table >
+        <tr  style="background:#c5c4c7; color: #fff;">
+          <th style="width: 15%; ">LAB. NO.</th>
+          <th>:</th>
+          <td>10245</td>
+          
+        </tr>
+        <tr style="background:#120369; color: #fff;">
+         
+          <th style="width: 15%;">PESAINT NAME</th>
+          <td style="width: 5px; font-weight: 700;">:</td>
+          <td>Maria Anders</td>
+         
+        </tr>
+        
+        <tr style="background:#c5c4c7; color: #fff;">
+          <th style="width: 15%;">PESAINT AGE</th>
+          <td style="width: 5px; font-weight: 700;">:</td>
+          <td>24</td>
+          
+        </tr>
+        <tr style="background:#120369; color: #fff;">
+          <th style="width: 15%;">DATE</th>
+          <td style="width: 5px; font-weight: 700;">:</td>
+          <td >16 Apr 2022</td>
+          
+        </tr>
+        <tr style="background:#c5c4c7; color: #fff;">
+          <th style="width: 16%;">Ref. Doctor Name</th>
+          <td style="width: 5px; font-weight: 700;">:</td>
+          <td>Dr. Sakib</td>
+         
+        </tr>
+        
+      </table>
+    </div>
+  </header>
+    <div class="container flex">
+        <div class="structure">
+          <h1>Pay Statments</h1>
+      
+          <form >
+  <label for="">Text Name</label>
+  <input type="text" placeholder="Text Name">
+  <label for="">Text Cost</label>
+  <input type="number" placeholder="Test Cost">
+  <button>SUBMIT</button>
+</form>
+
+ <table>
+   <thead>
+     <th>Test Name</th>
+     <th>Test Cost</th>
+     <th>Sub-Total</th>
+     <th>Action</th>
+   </thead>
+   <tbody>
+     <tr>
+     <td></td>
+     <td></td>
+     <td></td>
+     <td></td>
+     </tr>
+     <tr>
+     <td colspan="2" style="text-align:center; font-weight:700;">Total</td>
+     <td style="font-weight:700;">45</td>
+     </tr>
+   </tbody>
+ </table>
+      </div>
+      <hr class="Horizontal-Rule">
+    <footer >
+      <h6>Doctor's Tower, In front of Medical College Gate, Shepaipara, Rajshahi</h6>
+      <h6><span>Phone: 0721 77 00 28 </span> <span>Mobile:01311 00 48 48</span> <span>E-Mail: anwarulakhterswapon@gmail.com</span></h6>
+    </footer>
+    <input id="non-printable" type="button" onclick=printpage() value="Print PaySlip" />
+   </div>
+   <!-- <input id="non-printable" type="button" onclick="printDiv('printableArea')" value="Print PaySlip" /> -->
+      <script src="{% static 'js/paystatement.js'%}"></script>
+      <script>
+       
+      </script>
+     
+
+</body>
+</html>

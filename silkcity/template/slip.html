@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/styleslip.css' %}">
+</head>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <meta http-equiv="refresh" content="1">
+</head>
+</html>
+
+<body onload="showdiv();>
+
+     <div class="main">
+        <header>
+            <div class="header-top">
+              <div class="header-top-content">
+                <h1>Customer Service:01311 00 48 48</h1>
+                <h1>Silk City Diagnostic Complex</h1>
+              </div>
+              <img src="{% static 'img/ONVIQD0.png'%}" alt="">
+            </div>
+
+            <div class="header-table">
+              <table>
+                <tr  style="background:#c5c4c7; color: #fff;">
+                  <th style="width: 15%; ">SL. NO.</th>
+                  <th>:</th>
+                  <td>{{uid}}</td>
+
+                </tr>
+                <tr style="background:#120369; color: #fff;">
+
+                  <th style="width: 15%;">PESAINT NAME</th>
+                  <td style="width: 5px; font-weight: 700;">:</td>
+                  <td>{{name}}</td>
+
+                </tr>
+
+                <tr style="background:#c5c4c7; color: #fff;">
+                  <th style="width: 15%;">PESAINT AGE</th>
+                  <td style="width: 5px; font-weight: 700;">:</td>
+                  <td>24</td>
+
+                </tr>
+                <tr style="background:#120369; color: #fff;">
+                  <th style="width: 15%;">DATE</th>
+                  <td style="width: 5px; font-weight: 700;">:</td>
+                  <td >{{date}}</td>
+
+                </tr>
+                <tr style="background:#c5c4c7; color: #fff;">
+                  <th style="width: 15%;">Doctor Name</th>
+                  <td style="width: 5px; font-weight: 700;">:</td>
+                  <td>{{referred}}</td>
+
+                </tr>
+
+              </table>
+            </div>
+          </header>
+    </div>
+</body>
+<a href="javascript:window.print()">Print</a>
+
+</html>

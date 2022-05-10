@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	color: white;
+	
+	width: 100%;
+	margin: 0; 
+}
+.main{
+	max-width: 1080px;
+	margin: auto;
+	background: rgb(243, 243, 243);
+	height: 100%;
+	padding: 5px 10px;
+}
+/* header */
+header{
+	max-width: 1080px;
+	margin: auto;
+}
+.header-top{
+display: flex;	
+justify-content:space-between;
+color: #da472d;
+align-items: center;
+}
+.header-top img{
+width: 250px;
+}
+
+.header-top-content h1:first-child{
+	font-size: 16px;
+}
+.header-top-content h1:last-child{
+	font-size: 26px;
+	color: rgb(3, 4, 102);
+}
+
+/* .header-table table tr:nth-child(even) {
+	background-color: #120369;
+	color: #fff;
+  } */
+.date input{
+	background: #dfdfdf;
+	border: none;
+	outline: none;
+	color: #120369;
+	border-radius: 5px;
+}
+
+.header-table table, th, td {
+	border: 1px solid rgb(248, 248, 248);
+	border-collapse: collapse;
+	padding: 10px;
+} 
+.header-table table, td input {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1em;
+	padding: 5px 10px;
+	margin: 1px;
+}
+.header-table table th{
+	text-align: left;
+}
+.header-table table {
+	width: 1080px;
+	border: 1.2px solid rgb(26, 25, 25);
+}
+
+
+
+
+
+p, button, input {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1em;
+	padding: 5px 10px;
+	margin: 1px;
+}
+
+h2 {
+	text-align: center;
+}
+
+form{
+  display:flex;
+  column-gap:15px;
+}
+form input {
+  padding:5px;
+  background:#E22D6D;
+  border:none;
+  outline:none;
+  border-radius:5px;
+
+}
+form input::placeholder{
+  color:#fff;
+  letter-spacing:2px;
+}
+form button{
+  padding:5px 10px;
+  background:#E22D6D;
+  border:none;
+  outline:none;
+  border-radius:5px;
+   color:#fff;
+  font-weight:600;
+  letter-spacing:2px;
+}
+form label{
+  font-weight:700;
+  font-size:26px;
+}
+
+table{
+  width: 50%;
+/*   border:1px solid #E22D6D; */
+  border-collapse: collapse;
+  margin-top: 50px;
+}
+table th, td{
+  border:1px solid #E22D6D;
+  text-align:left;
+}
+
