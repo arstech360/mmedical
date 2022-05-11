@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import Login,signup,table,billing,signIn,postsignIn,postserial,doctor,adddoctor,dashboard,adoctor,deletedoc,slip,paystatement,billpay,testinfo,deletetest
+from .views import Login,signup,table,billing,signIn,postsignIn,postserial,doctor,adddoctor,dashboard,adoctor,deletedoc,slip,paystatement,billpay,testinfo,deletetest\
+    ,addemployee,employee,addemployeepost,expense,expensepost,expensedetails,deleteemployee,deleteexpense,deletedepositor
 from django.urls import re_path as url
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -37,7 +38,14 @@ path('paystatement/',paystatement,name='paystatement'),
 path('billpay/',billpay,name='billpay'),
 path('testinfo/',testinfo,name='testinfo'),
 path('deletetest<docid1>/',deletetest,name='deletetest'),
-
-
+path('addemployee',addemployee,name="addemployee"),
+path('employee',employee,name="employee"),
+path('addemployeepost',addemployeepost,name="addemployeepost"),
+path('expense',expense,name="expense"),
+path('expensepost',expensepost,name="expensepost"),
+path('expensedetails',expensedetails,name="expensedetails"),
+path('deleteemployee<docid2>',deleteemployee,name="deleteemployee"),
+path('deleteexpense<docid3>',deleteexpense,name="deleteexpense"),
+path('deletedepositor<docid4>',deletedepositor,name="deletedepositor"),
 
 ]

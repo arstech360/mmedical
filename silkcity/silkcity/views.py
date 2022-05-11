@@ -374,3 +374,132 @@ def paystatement(request):
 
     # Handle Elements from first Form
     return render(request, 'testbilling.html')
+def expense(request):
+  return render(request,"expense.html")
+
+def expensepost(request):
+  employee_type = request.POST.get('employee_type', '')
+  designation_id = request.POST.get('designation_id')
+  mobile_number = request.POST.get('mobile_number')
+  designation_id1 = request.POST.get('designation_id1')
+  father_name = request.POST.get('father_name')
+  employee_images = request.POST.get('employee_images')
+  designation_id2 = request.POST.get('designation_id2')
+  house_rent = request.POST.get('house_rent')
+  data = {
+    "designation_id": designation_id,
+    "employee_type": employee_type,
+    "mobile_number": mobile_number,
+    "designation_id1": designation_id1,
+    "father_name": father_name,
+    "employee_images": employee_images,
+    "house_rent": house_rent,
+    "designation_id2": designation_id2,
+  }
+  import time
+  database.child("somiti").child("expense").push(data)
+  expense = database.child("somiti").child("dashboarddata").get().val()
+  named_tuple = time.localtime()  # get struct_time
+  timedate = time.strftime("%m%d%Y", named_tuple)
+  timedate = "date" + str(timedate)
+  expensetoday= database.child("somiti").child("dailyoverview").child(timedate).get().val()
+  if expensetoday== None:
+    database.child("somiti").child("dailyoverview").child(timedate).update(
+      {"expensetoday": house_rent})
+  else:
+    savingtoday = float(expensetoday['expensetoday']) + float(house_rent)
+    database.child("somiti").child("dailyoverview").child(timedate).update(
+      {"expensetoday": savingtoday})
+  return redirect('expensedetails')
+
+def expensedetails(request):
+  context = database.child("somiti").get().val()
+  return render(request,"expenseDetails.html",context)
+
+
+def addemployee(request):
+  return render(request,"add-employee.html")
+def addemployeepost(request):
+  employee_name=request.POST.get('employee_name','')
+  employee_type = request.POST.get('employee_type')
+  designation_id = request.POST.get('designation_id')
+  mobile_number = request.POST.get('mobile_number')
+  email_address = request.POST.get('email_address')
+  mother_name = request.POST.get('mother_name')
+  father_name = request.POST.get('father_name')
+  employee_images = request.POST.get('employee_images')
+  permanent_address = request.POST.get('permanent_address')
+  nid_number = request.POST.get('nid_number')
+  basic_salary = request.POST.get('basic_salary')
+  washing_cost = request.POST.get('washing_cost')
+  deposit_amount = request.POST.get('deposit_amount')
+  overtime_rate = request.POST.get('overtime_rate')
+  joining_date = request.POST.get('joining_date')
+  house_rent = request.POST.get('house_rent')
+  cng_cost = request.POST.get('cng_cost')
+  perDaySalery = request.POST.get('perDaySalery')
+  mobile_cost = request.POST.get('mobile_cost')
+  status = request.POST.get('status')
+  if status == "1":
+    status1 = "new patient"
+  elif status == "2":
+    status1 = "old patient"
+  else:
+    None
+  data={
+    "employee_name": employee_name,
+    "employee_type":employee_type,
+    "status":status1,
+    "mobile_cost":mobile_cost,
+    "perDaySalery":perDaySalery,
+    "cng_cost":cng_cost,
+    "house_rent":house_rent,
+    "joining_date":joining_date,
+    "overtime_rate":overtime_rate,
+    "deposit_amount":deposit_amount,
+    "washing_cost":washing_cost,
+    "basic_salary":basic_salary,
+    "nid_number":nid_number,
+    "permanent_address":permanent_address,
+    "employee_images":employee_images,
+    "father_name":father_name,
+    "mother_name":mother_name,
+    "email_address":email_address,
+    "mobile_number":mobile_number,
+    "designation_id":designation_id
+  }
+  print(data)
+  database.child("somiti").child("employee").push(data)
+  return redirect('employee')
+def employee(request):
+  context=database.child("somiti").get().val()
+  return render(request,"employee.html",context)
+
+def deleteemployee(request, docid2):
+    print(docid2)
+
+    test = database.child("somiti").child("employee").get().val()
+    for key, value in test.items():
+      if value['employee_name'] == docid2:
+        database.child("somiti").child("employee").child(key).remove()
+    return redirect('employee')
+
+
+def deleteexpense(request, docid3):
+  print(docid3)
+
+  test = database.child("somiti").child("expense").get().val()
+  for key, value in test.items():
+    if value['father_name'] == docid3:
+      database.child("somiti").child("expense").child(key).remove()
+  return redirect('expensedetails')
+
+def deletedepositor(request, docid4):
+  print(docid4)
+
+  test = database.child("somiti").child("depostior").get().val()
+  for key, value in test.items():
+    if value['depositor_name'] == docid4:
+      database.child("somiti").child("depostior").child(key).remove()
+  return redirect('depositor')
+
